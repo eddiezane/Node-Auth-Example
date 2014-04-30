@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Auth Example</title>
+</head>
+<body>
+
+  {{#message}}
+  <ul>
+    <li>{{message}}</li>
+  </ul>
+  {{/message}}
+
+  {{#user}}
+  <p>Welcome, {{user}}</p>
+  <form action="/logout" method="post">
+    <input type="submit" value="Log out">
+  </form>
+  {{/user}}
+
+  {{^user}}
+  <h1>Login</h1>
+
+  <form action="/login" method="post">
+    <label>Username:
+      <input type="text" name="username">
+    </label>
+    <label>Password:
+      <input type="password" name="password">
+    </label>
+    <input type="submit" value="Login">
+  </form>
+
+  <h1>Sign up</h1>
+  <form action="/signup" method="post">
+    <label>Username:
+      <input type="text" name="username">
+    </label>
+    <label>Password:
+      <input type="password" name="password">
+    </label>
+    <label>Password Confirmation:
+      <input type="password" name="password_confirmation">
+    </label>
+    <input type="submit" value="Sign up">
+  </form>
+  {{/user}}
+
+</body>
+</html>
